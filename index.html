@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLICON | Sign In / Sign Up</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+</head>
+
+<body class="page">
+  <!-- Header -->
+  <header class="header">
+    <div class="header__top">
+      <p>Welcome to Clicon online eCommerce store.</p>
+      <div class="header__social">
+        Follow us: 
+        <a><i class="fab fa-twitter"></i></a>
+        <a><i class="fab fa-facebook-f"></i></a>
+        <a><i class="fab fa-pinterest-p"></i></a>
+        <a><i class="fab fa-youtube"></i></a>
+        <a><i class="fab fa-instagram"></i></a>
+        <div class="header__line"></div>
+      </div>
+    </div>
+    <div class="header__main">
+      <div class="header__logo">CLICON</div>
+      <div class="header__search">
+        <input type="text" placeholder="Search for anything..." />
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="header__contact">
+        <p>+1-202-555-0104</p>
+      </div>
+    </div>
+    <nav class="header__nav">
+      <ul>
+        <li>All Category</li>
+        <li>Track Order</li>
+        <li>Compare</li>
+        <li>Customer Support</li>
+        <li>Need Help</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <section class="breadcrumb">
+    <p>Home > User Account > <span id="breadcrumb-active">Sign In</span></p>
+  </section>
+
+  <!-- Auth Form -->
+  <main class="auth">
+    <div class="auth__tabs">
+      <button class="auth__tab auth__tab--active" id="signInTab">Sign In</button>
+      <button class="auth__tab" id="signUpTab">Sign Up</button>
+    </div>
+    <form class="auth__form auth__form--signin" method="" id="signInForm">
+      <label>Email Address<input type="email" required /></label>
+      <label>Password<input type="password" required minlength="6" /></label>
+      <div class="auth__forgot">Forget Password</div>
+      <button type="submit" class="auth__submit">SIGN IN</button>
+      <p class="auth__or">or</p>
+      <button type="button" class="auth__social auth__social--google">
+        <i class="fab fa-google"></i> Login with Google
+      </button>
+      <button type="button" class="auth__social auth__social--apple">
+        <i class="fab fa-apple"></i> Login with Apple
+      </button>
+    </form>
+    <form class="auth__form auth__form--signup hidden" method="" id="signUpForm">
+      <label>Name<input type="text" required /></label>
+      <label>Email Address<input type="email" required /></label>
+      <label>Password<input type="password" required minlength="6" /></label>
+      <label>Confirm Password<input type="password" required minlength="6" /></label>
+      <label><input type="checkbox" required /> I agree to Clicon's Terms and Privacy Policy.</label>
+      <button type="submit" class="auth__submit">SIGN UP</button>
+      <p class="auth__or">or</p>
+      <button type="button" class="auth__social auth__social--google">
+        <i class="fab fa-google"></i> Sign up with Google
+      </button>
+      <button type="button" class="auth__social auth__social--apple">
+        <i class="fab fa-apple"></i> Sign up with Apple
+      </button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__main">
+      <div class="footer__col">
+        <h3>CLICON</h3>
+        <p>Customer Support:<br /> (629) 555-0129<br /> 4571 Washington Ave, Kentucky 39495<br /> info@kinbo.com</p>
+      </div>
+      <div class="footer__col">
+        <h4>Top Category</h4>
+        <ul>
+          <li>Computer & Laptop</li>
+          <li>SmartPhone</li>
+          <li>Headphone</li>
+          <li>Accessories</li>
+          <li>Camera & Photo</li>
+          <li>TV & Homes</li>
+          <li><strong>Browse All Product</strong></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li>Shop Product</li>
+          <li>Shopping Cart</li>
+          <li>Wishlist</li>
+          <li>Compare</li>
+          <li>Track Order</li>
+          <li>Customer Help</li>
+          <li>About Us</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Download App</h4>
+        <a href="#"><i class="fa-brands fa-google-play"></i></a>
+        <a href="#"><i class="fab fa-app-store"></i></a>
+      </div>
+      <div class="footer__col">
+        <h4>Popular Tags</h4>
+        <div class="tags">
+          <span>Game</span><span>iPhone</span><span>TV</span><span>Asus
+            Laptops</span><span>Macbook</span><span>SSD</span><span>Graphics Card</span><span>Power
+            Bank</span><span>Smart
+            TV</span><span>Speaker</span><span>Tablet</span><span>Microwave</span><span>Samsung</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">Kinbo eCommerce Template © 2021. Design by Templatecookie</div>
+  </footer>
+  <script defer src="script.js"></script>
+</body>
+
+</html>
