@@ -15,7 +15,7 @@
     <div class="header__top">
       <p>Welcome to Clicon online eCommerce store.</p>
       <div class="header__social">
-        Follow us: 
+        Follow us:
         <a><i class="fab fa-twitter"></i></a>
         <a><i class="fab fa-facebook-f"></i></a>
         <a><i class="fab fa-pinterest-p"></i></a>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="header__main">
-      <div class="header__logo">CLICON</div>
+      <div class="header__logo"><img src="assets/img/icon0.svg"/> CLICON</div>
       <div class="header__search">
         <input type="text" placeholder="Search for anything..." />
         <button><i class="fas fa-search"></i></button>
@@ -36,99 +36,151 @@
     </div>
     <nav class="header__nav">
       <ul>
-        <li>All Category</li>
-        <li>Track Order</li>
-        <li>Compare</li>
-        <li>Customer Support</li>
-        <li>Need Help</li>
+        <li><a href="#">All Category</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Compare</a></li>
+        <li><a href="#">Customer Support</a></li>
+        <li><a href="#">Need Help</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Breadcrumb -->
   <section class="breadcrumb">
-    <p>Home > User Account > <span id="breadcrumb-active">Sign In</span></p>
+    <p>
+      <i class="fas fa-home"></i> Home > User Account > <span id="breadcrumb-active">Sign In</span>
+    </p>
   </section>
 
   <!-- Auth Form -->
   <main class="auth">
-    <div class="auth__tabs">
-      <button class="auth__tab auth__tab--active" id="signInTab">Sign In</button>
-      <button class="auth__tab" id="signUpTab">Sign Up</button>
+    <div class="auth__container">
+      <div class="auth__tabs">
+        <button class="auth__tab auth__tab--active" id="signInTab">Sign In</button>
+        <button class="auth__tab" id="signUpTab">Sign Up</button>
+      </div>
+      <form class="auth__form auth__form--signin" method="" id="signInForm">
+        <div class="auth__form--group">
+          <label for="signInEmail">Email Address</label>
+          <input type="email" id="signInEmail" required />
+        </div>
+        <div class="auth__form--group">
+          <label for="signInPassword">Password</label>
+          <div class="auth__forgot"><a href="#">Forget Password</a></div>
+          <div class="auth__input--password">
+            <input type="password" id="signInPassword" required minlength="6" />
+            <i class="fa-regular fa-eye auth__icon--eye" data-target="signInPassword"></i>
+          </div>
+        </div>
+        <button type="submit" class="auth__submit">SIGN IN <i class="fas fa-arrow-right"></i></button>
+        <div class="auth__or"><span>or</span></div>
+        <button type="button" class="auth__social auth__social--google">
+          <i class="fab fa-google"></i> Login with Google
+        </button>
+        <button type="button" class="auth__social auth__social--apple">
+          <i class="fab fa-apple"></i> Login with Apple
+        </button>
+      </form>
+      <form class="auth__form auth__form--signup hidden" method="" id="signUpForm">
+        <div class="auth__form--group">
+          <label for="name">Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="auth__form--group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="auth__form--group">
+          <label for="signUpPassword">Password</label>
+          <div class="auth__input--password">
+            <input type="password" id="signUpPassword" required minlength="6" placeholder="8+ characters" />
+            <i class="fa-regular fa-eye auth__icon--eye" data-target="signUpPassword"></i>
+          </div>
+        </div>
+        <div class="auth__form--group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="auth__input--password">
+            <input type="password" id="confirmPassword" required minlength="6" />
+            <i class="fa-regular fa-eye auth__icon--eye" data-target="confirmPassword"></i>
+          </div>
+        </div>
+        <div class="form__checkbox">
+          <input type="checkbox" id="terms" required />
+          <label for="terms">Are you agree to Clicon <a href="#">Terms of Condition</a> and <a href="#">Privacy
+              Policy</a>.</label>
+        </div>
+        <button type="submit" class="auth__submit">SIGN UP <i class="fas fa-arrow-right"></i></button>
+        <div class="auth__or"><span>or</span></div>
+        <button type="button" class="auth__social auth__social--google">
+          <i class="fab fa-google"></i> Sign up with Google
+        </button>
+        <button type="button" class="auth__social auth__social--apple">
+          <i class="fab fa-apple"></i> Sign up with Apple
+        </button>
+      </form>
     </div>
-    <form class="auth__form auth__form--signin" method="" id="signInForm">
-      <label>Email Address<input type="email" required /></label>
-      <label>Password<input type="password" required minlength="6" /></label>
-      <div class="auth__forgot">Forget Password</div>
-      <button type="submit" class="auth__submit">SIGN IN</button>
-      <p class="auth__or">or</p>
-      <button type="button" class="auth__social auth__social--google">
-        <i class="fab fa-google"></i> Login with Google
-      </button>
-      <button type="button" class="auth__social auth__social--apple">
-        <i class="fab fa-apple"></i> Login with Apple
-      </button>
-    </form>
-    <form class="auth__form auth__form--signup hidden" method="" id="signUpForm">
-      <label>Name<input type="text" required /></label>
-      <label>Email Address<input type="email" required /></label>
-      <label>Password<input type="password" required minlength="6" /></label>
-      <label>Confirm Password<input type="password" required minlength="6" /></label>
-      <label><input type="checkbox" required /> I agree to Clicon's Terms and Privacy Policy.</label>
-      <button type="submit" class="auth__submit">SIGN UP</button>
-      <p class="auth__or">or</p>
-      <button type="button" class="auth__social auth__social--google">
-        <i class="fab fa-google"></i> Sign up with Google
-      </button>
-      <button type="button" class="auth__social auth__social--apple">
-        <i class="fab fa-apple"></i> Sign up with Apple
-      </button>
-    </form>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer__main">
       <div class="footer__col">
-        <h3>CLICON</h3>
+        <h3 class="footer__logo"><img src="assets/img/icon1.svg" /> CLICON</h3>
         <p>Customer Support:<br /> (629) 555-0129<br /> 4571 Washington Ave, Kentucky 39495<br /> info@kinbo.com</p>
       </div>
       <div class="footer__col">
         <h4>Top Category</h4>
-        <ul>
-          <li>Computer & Laptop</li>
-          <li>SmartPhone</li>
-          <li>Headphone</li>
-          <li>Accessories</li>
-          <li>Camera & Photo</li>
-          <li>TV & Homes</li>
-          <li><strong>Browse All Product</strong></li>
-        </ul>
+        <a href="#">Computer & Laptop</a>
+        <a href="#">SmartPhone</a>
+        <a href="#">Headphone</a>
+        <a href="#"><div class="footer__col--devider"></div> Accessories</a>
+        <a href="#">Camera & Photo</a>
+        <a href="#">TV & Homes</a>
+        <a href="#"><strong>Browse All Product</strong></a>
       </div>
       <div class="footer__col">
         <h4>Quick Links</h4>
-        <ul>
-          <li>Shop Product</li>
-          <li>Shopping Cart</li>
-          <li>Wishlist</li>
-          <li>Compare</li>
-          <li>Track Order</li>
-          <li>Customer Help</li>
-          <li>About Us</li>
-        </ul>
+        <a href="#">Shop Product</a>
+        <a href="#">Shopping Cart</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Compare</a>
+        <a href="#">Track Order</a>
+        <a href="#">Customer Help</a>
+        <a href="#">About Us</a>
       </div>
       <div class="footer__col">
         <h4>Download App</h4>
-        <a href="#"><i class="fa-brands fa-google-play"></i></a>
-        <a href="#"><i class="fab fa-app-store"></i></a>
+        <div class="footer__apps">
+          <a href="#" class="app__link"><i class="fab fa-google-play"></i>
+            <div>
+              <div>Get it now</div>
+              <div>Google Play</div>
+            </div>
+          </a>
+          <a href="#" class="app__link"><i class="fab fa-app-store"></i>
+            <div>
+              <div>Get it now</div>
+              <div>App Store</div>
+            </div>
+          </a>
+        </div>
       </div>
       <div class="footer__col">
         <h4>Popular Tags</h4>
         <div class="tags">
-          <span>Game</span><span>iPhone</span><span>TV</span><span>Asus
-            Laptops</span><span>Macbook</span><span>SSD</span><span>Graphics Card</span><span>Power
-            Bank</span><span>Smart
-            TV</span><span>Speaker</span><span>Tablet</span><span>Microwave</span><span>Samsung</span>
+          <span class="tag">Game</span>
+          <span class="tag">iPhone</span>
+          <span class="tag">TV</span>
+          <span class="tag">Asus Laptops</span>
+          <span class="tag">Macbook</span>
+          <span class="tag">SSD</span>
+          <span class="tag">Graphics Card</span>
+          <span class="tag">Power Bank</span>
+          <span class="tag">Smart TV</span>
+          <span class="tag">Speaker</span>
+          <span class="tag">Tablet</span>
+          <span class="tag">Microwave</span>
+          <span class="tag">Samsung</span>
         </div>
       </div>
     </div>
