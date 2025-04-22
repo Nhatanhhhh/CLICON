@@ -125,15 +125,9 @@
   <!-- Auth Form -->
   <main class="auth" id="main-content">
     <div class="auth__container">
-      <div class="auth__tabs" role="tablist" aria-label="Authentication tabs">
-        <button class="auth__tab auth__tab--active" id="signInTab" role="tab" aria-selected="true"
-          aria-controls="signInForm">
-          Sign In
-        </button>
-        <button class="auth__tab" id="signUpTab" role="tab" aria-selected="false" aria-controls="signUpForm"
-          tabindex="-1">
-          Sign Up
-        </button>
+      <div class="auth__tabs" role="tablist">
+        <button class="auth__tab auth__tab--active" id="signInTab" role="tab" aria-selected="true">Sign In</button>
+        <button class="auth__tab" id="signUpTab" role="tab" aria-selected="false">Sign Up</button>
       </div>
       <form class="auth__form auth__form--signin" method="post" id="signInForm" aria-labelledby="signInTab"
         role="tabpanel">
@@ -142,8 +136,12 @@
           <input type="email" id="signInEmail" required aria-required="true" />
         </div>
         <div class="auth__form--group">
-          <label for="signInPassword">Password</label>
-          <div class="auth__forgot"><a href="#" aria-label="Forgot password">Forget Password</a></div>
+          <div class="password-header"> <!-- Thêm wrapper mới -->
+            <label for="signInPassword">Password</label>
+            <div class="auth__forgot">
+              <a href="#" aria-label="Forgot password">Forget Password</a>
+            </div>
+          </div>
           <div class="auth__input--password">
             <input type="password" id="signInPassword" required minlength="6" aria-required="true" />
             <button type="button" class="auth__icon--eye" data-target="signInPassword" aria-label="Show password">
@@ -161,7 +159,7 @@
           <i class="fab fa-apple" aria-hidden="true"></i> Sign in with Apple
         </button>
       </form>
-      <form class="auth__form auth__form--signup hidden" method="post" id="signUpForm" aria-labelledby="signUpTab"
+      <form class="auth__form auth__form--signup" method="post" id="signUpForm" aria-labelledby="signUpTab"
         role="tabpanel" hidden>
         <div class="auth__form--group">
           <label for="name">Name</label>
@@ -275,7 +273,7 @@
     </div>
     <div class="footer__bottom">Kinbo eCommerce Template © 2021. Design by Templatecookie</div>
   </footer>
-  <script defer src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>

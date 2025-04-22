@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
         signUpForm.hidden = true;
         signInTab.setAttribute("aria-selected", "true");
         signUpTab.setAttribute("aria-selected", "false");
-        signInTab.tabIndex = 0;
-        signUpTab.tabIndex = -1;
+        signInTab.classList.add("auth__tab--active");
+        signUpTab.classList.remove("auth__tab--active");
         breadcrumbActive.textContent = 'Sign In';
     }
 
@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
         signInForm.hidden = true;
         signUpTab.setAttribute("aria-selected", "true");
         signInTab.setAttribute("aria-selected", "false");
-        signUpTab.tabIndex = 0;
-        signInTab.tabIndex = -1;
+        signUpTab.classList.add("auth__tab--active");
+        signInTab.classList.remove("auth__tab--active");
         breadcrumbActive.textContent = 'Sign Up';
     }
 
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Validate email format
     function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const re = '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
         return re.test(email);
     }
 
