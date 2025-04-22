@@ -5,64 +5,157 @@ document.addEventListener('DOMContentLoaded', function () {
     const signInTab = document.getElementById('signInTab');
     const signUpTab = document.getElementById('signUpTab');
     const breadcrumbActive = document.getElementById('breadcrumb-active');
+    const allCategoryButton = document.getElementById("allCategoryButton");
+    const allCategoryDropdown = document.getElementById("allCategoryDropdown");
+    const languageButton = document.getElementById("allLanguageButton");
+    const languageDropdown = document.getElementById("allLanguageDropdown");
+    const moneyButton = document.getElementById("allMoneyButton");
+    const moneyDropdown = document.getElementById("allMoneyDropdown");
+    const skipLink = document.querySelector('.skip-link');
 
-    // Toggle between forms
-    function switchToSignIn() {
-        signInForm.style.display = 'flex'; 
-        signUpForm.style.display = 'none';
-        signInForm.classList.remove('hidden');
-        signUpForm.classList.add('hidden');
-        signInTab.classList.add('auth__tab--active');
-        signUpTab.classList.remove('auth__tab--active');
-        breadcrumbActive.textContent = 'Sign In';
+    // Focus management for skip link
+    skipLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('main-content').setAttribute('tabindex', '-1');
+        document.getElementById('main-content').focus();
+    });
 
-        // Update social button text
-        document.querySelectorAll('.auth__social').forEach(btn => {
-            if (btn.classList.contains('auth__social--google')) {
-                btn.innerHTML = '<i class="fab fa-google"></i> Login with Google';
-            } else {
-                btn.innerHTML = '<i class="fab fa-apple"></i> Login with Apple';
+    // Dropdown functionality
+    allCategoryButton.addEventListener("click", () => {
+        const isExpanded = allCategoryButton.getAttribute("aria-expanded") === "true";
+        allCategoryButton.setAttribute("aria-expanded", !isExpanded);
+        allCategoryDropdown.classList.toggle("active");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (event) => {
+        if (!allCategoryButton.contains(event.target) && !allCategoryDropdown.contains(event.target)) {
+            allCategoryButton.setAttribute("aria-expanded", "false");
+            allCategoryDropdown.classList.remove("active");
+        }
+    });
+
+    // Toggle dropdown visibility
+    const toggleDropdown = (button, dropdown) => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", !isExpanded);
+        dropdown.classList.toggle("active");
+    };
+
+    // Close all dropdowns
+    const closeAllDropdowns = () => {
+        languageButton.setAttribute("aria-expanded", "false");
+        languageDropdown.classList.remove("active");
+        moneyButton.setAttribute("aria-expanded", "false");
+        moneyDropdown.classList.remove("active");
+        allCategoryButton.setAttribute("aria-expanded", "false");
+        allCategoryDropdown.classList.remove("active");
+    };
+
+    // Event listeners for language dropdown
+    languageButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        closeAllDropdowns();
+        toggleDropdown(languageButton, languageDropdown);
+    });
+
+    // Event listeners for money dropdown
+    moneyButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        closeAllDropdowns();
+        toggleDropdown(moneyButton, moneyDropdown);
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", closeAllDropdowns);
+
+    // Keyboard navigation for dropdowns
+    [languageButton, moneyButton, allCategoryButton].forEach(button => {
+        button.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                const dropdownId = button.getAttribute("aria-controls");
+                const dropdown = document.getElementById(dropdownId);
+                toggleDropdown(button, dropdown);
+            } else if (event.key === "Escape") {
+                closeAllDropdowns();
             }
         });
+    });
+
+    // Tab functionality
+    function switchToSignIn() {
+        signInForm.hidden = false;
+        signUpForm.hidden = true;
+        signInTab.setAttribute("aria-selected", "true");
+        signUpTab.setAttribute("aria-selected", "false");
+        signInTab.tabIndex = 0;
+        signUpTab.tabIndex = -1;
+        breadcrumbActive.textContent = 'Sign In';
     }
 
     function switchToSignUp() {
-        signUpForm.style.display = 'flex'; 
-        signInForm.style.display = 'none';
-        signUpForm.classList.remove('hidden');
-        signInForm.classList.add('hidden');
-        signUpTab.classList.add('auth__tab--active');
-        signInTab.classList.remove('auth__tab--active');
+        signUpForm.hidden = false;
+        signInForm.hidden = true;
+        signUpTab.setAttribute("aria-selected", "true");
+        signInTab.setAttribute("aria-selected", "false");
+        signUpTab.tabIndex = 0;
+        signInTab.tabIndex = -1;
         breadcrumbActive.textContent = 'Sign Up';
-
-        // Update social button text
-        document.querySelectorAll('.auth__social').forEach(btn => {
-            if (btn.classList.contains('auth__social--google')) {
-                btn.innerHTML = '<i class="fab fa-google"></i> Sign up with Google';
-            } else {
-                btn.innerHTML = '<i class="fab fa-apple"></i> Sign up with Apple';
-            }
-        });
     }
 
     // Tab click events
     signInTab.addEventListener('click', switchToSignIn);
     signUpTab.addEventListener('click', switchToSignUp);
 
+    // Keyboard navigation for tabs
+    [signInTab, signUpTab].forEach(tab => {
+        tab.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                if (tab.id === 'signInTab') {
+                    switchToSignIn();
+                } else {
+                    switchToSignUp();
+                }
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (e.key === 'ArrowRight' && tab.id === 'signInTab') {
+                    switchToSignUp();
+                    signUpTab.focus();
+                } else if (e.key === 'ArrowLeft' && tab.id === 'signUpTab') {
+                    switchToSignIn();
+                    signInTab.focus();
+                }
+            }
+        });
+    });
+
     // Password visibility toggle
-    document.querySelectorAll('.auth__icon--eye').forEach(icon => {
-        icon.addEventListener('click', function () {
+    document.querySelectorAll('.auth__icon--eye').forEach(button => {
+        button.addEventListener('click', function () {
             const targetId = this.getAttribute('data-target');
             const targetInput = document.getElementById(targetId);
+            const icon = this.querySelector('i');
 
             if (targetInput.type === 'password') {
                 targetInput.type = 'text';
-                this.classList.remove('fa-eye');
-                this.classList.add('fa-eye-slash');
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+                this.setAttribute('aria-label', 'Hide password');
             } else {
                 targetInput.type = 'password';
-                this.classList.remove('fa-eye-slash');
-                this.classList.add('fa-eye');
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+                this.setAttribute('aria-label', 'Show password');
+            }
+        });
+
+        // Keyboard support for password toggle
+        button.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                button.click();
             }
         });
     });
@@ -78,11 +171,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const formControl = input.parentElement;
         const errorMsg = formControl.querySelector('.error-message') || document.createElement('span');
         errorMsg.className = 'error-message';
-        errorMsg.style.color = 'red';
-        errorMsg.style.fontSize = '12px';
         errorMsg.textContent = message;
         formControl.appendChild(errorMsg);
-        input.style.borderColor = 'red';
+        input.classList.add('error');
+        input.setAttribute('aria-invalid', 'true');
     }
 
     // Remove error message
@@ -92,7 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (errorMsg) {
             formControl.removeChild(errorMsg);
         }
-        input.style.borderColor = '#E4E7E9';
+        input.classList.remove('error');
+        input.setAttribute('aria-invalid', 'false');
     }
 
     // Validate form inputs
@@ -109,8 +202,8 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (input.type === 'email' && !validateEmail(input.value)) {
                 showError(input, 'Please enter a valid email');
                 isValid = false;
-            } else if (input.type === 'password' && input.value.length < 6) {
-                showError(input, 'Password must be at least 6 characters');
+            } else if (input.type === 'password' && input.value.length < (input.id === 'signUpPassword' ? 8 : 6)) {
+                showError(input, `Password must be at least ${input.id === 'signUpPassword' ? 8 : 6} characters`);
                 isValid = false;
             }
         });
