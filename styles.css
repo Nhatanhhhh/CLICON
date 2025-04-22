@@ -52,7 +52,7 @@ body {
 }
 
 .header__social--icon-item {
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
 /* Dropdown styles */
@@ -121,18 +121,29 @@ body {
     gap: 8px;
 }
 
+.header__logo h1 {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+}
+
 .header__search {
     display: flex;
     background: white;
     border-radius: 2px;
-    padding: 5px 10px;
     width: 646px;
     height: 48px;
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.08);
 }
 
+.header__search button i{
+    font-size: 20px;
+    color: #77878F;
+    padding-right: 20px;
+}
+
 .header__search input {
-    padding: 5px;
+    padding: 5px 0px 5px 20px;
     border: none;
     outline: none;
     width: 100%;
@@ -162,7 +173,7 @@ body {
 .header__contact {
     color: black;
     font-size: 18px;
-    color: #5F6C72;
+    color: #4A5568;
 }
 
 .header__language--list {
@@ -229,7 +240,7 @@ body {
 }
 
 .header__nav a {
-    color: #5F6C72;
+    color: #4A5568;
     text-decoration: none;
     font-size: 12px;
     gap: 6px;
@@ -240,7 +251,7 @@ body {
 }
 
 .header__nav--item a {
-    color: #5F6C72;
+    color: #4A5568;
     font-size: 14px;
     cursor: pointer;
     padding: 15px 10px 15px 10px;
@@ -262,7 +273,7 @@ body {
 
 .dropdown__link {
     text-decoration: none;
-    color: #5F6C72;
+    color: #4A5568;
     font-size: 14px;
 }
 
@@ -301,7 +312,7 @@ body {
 
 .header__contact p {
     font-size: 16px;
-    color: #5F6C72;
+    color: #4A5568;
     padding: 0 0 0 50px;
 }
 
@@ -310,11 +321,11 @@ body {
     background: #F2F4F5;
     padding: 1% 18%;
     font-size: 14px;
-    color: #5F6C72;
+    color: #4A5568;
 }
 
 .breadcrumb a {
-    color: #5F6C72;
+    color: #4A5568;
     text-decoration: none;
 }
 
@@ -351,6 +362,8 @@ body {
     border-radius: 4px;
     width: 424px;
     box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.12);
+    padding: 0;
+    margin: 0;
 }
 
 .auth__tabs {
@@ -442,7 +455,7 @@ input {
     color: white;
     border: none;
     border-radius: 2px;
-    padding: 0 24px;
+    padding: 0;
     height: 48px;
     font-size: 14px;
     font-weight: bold;
