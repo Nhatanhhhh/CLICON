@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLICON | Sign In / Sign Up</title>
+  <meta name="description" content="Sign in or create an account with CLICON eCommerce store">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Skip to main content link (hidden until focused) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__top">
+      <p>Welcome to Clicon online eCommerce store.</p>
+      <div class="header__social">
+        <span>Follow us:</span>
+        <div class="header__social--icon">
+          <a class="header__social--icon-item" href="#" aria-label="Twitter"><i class="fab fa-twitter"
+              aria-hidden="true"></i></a>
+          <a class="header__social--icon-item" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"
+              aria-hidden="true"></i></a>
+          <a class="header__social--icon-item" href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"
+              aria-hidden="true"></i></a>
+          <a class="header__social--icon-item" href="#" aria-label="Youtube"><i class="fab fa-youtube"
+              aria-hidden="true"></i></a>
+          <a class="header__social--icon-item" href="#" aria-label="Instagram"><i class="fab fa-instagram"
+              aria-hidden="true"></i></a>
+        </div>
+        <div class="header__line"></div>
+        <div class="header__language">
+          <button id="allLanguageButton" aria-expanded="false" aria-controls="dropdown"><span>Eng</span> <i
+              class="fa-solid fa-angle-down" aria-hidden="true"></i></button>
+          <div id="allLanguageDropdown" class="header__language--dropdown" aria-labelledby="allLanguageButton">
+            <ul class="header__language--list">
+              <li><a class="header__language--item" href="#" lang="en">English</a></li>
+              <li><a class="header__language--item" href="#" lang="es">Spanish</a></li>
+              <li><a class="header__language--item" href="#" lang="fr">French</a></li>
+              <li><a class="header__language--item" href="#" href="#" lang="de">German</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="header__money">
+          <button id="allMoneyButton" aria-expanded="false" aria-controls="dropdown"><span>USD</span> <i
+              class="fa-solid fa-angle-down" aria-hidden="true"></i></button>
+          <div id="allMoneyDropdown" class="header__money--dropdown" aria-labelledby="allMoneyButton">
+            <ul class="header__money--list">
+              <li><a class="header__money--item" href="#">USD</a></li>
+              <li><a class="header__money--item" href="#">EUR</a></li>
+              <li><a class="header__money--item" href="#">GBP</a></li>
+              <li><a class="header__money--item" href="#">AUD</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header__middle">
+      <div class="header__logo"><img src="assets/img/icon0.svg" alt="Company logo"/> <h1>CLICON</h1></div>
+      <div class="header__search">
+        <input type="text" id="searchInput" placeholder="Search for anything..." aria-label="Search products" />
+        <button aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+      </div>
+      <div class="header__account">
+        <div class="header__account--item"><a href="#" aria-label="Shopping cart"><i class="fa-solid fa-shopping-cart"
+              aria-hidden="true"></i></a></div>
+        <div class="header__account--item"><a href="#" aria-label="Wishlist"><i class="fa-solid fa-heart"
+              aria-hidden="true"></i></a></div>
+        <div class="header__account--item"><a href="#" aria-label="User account"><i class="fa-solid fa-user"
+              aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="header__bottom">
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul>
+          <li class="menu__item">
+            <button class="menu__link" id="allCategoryButton" type="button" aria-expanded="false"
+              aria-controls="dropdown">All Category <i class="fa-solid fa-angle-down"
+                aria-hidden="true"></i></button>
+          </li>
+          <div class="dropdown dropdown--all-category" id="allCategoryDropdown" aria-labelledby="allCategoryButton">
+            <ul class="dropdown__list">
+              <li class="dropdown__item"><a href="#" class="dropdown__link">Category 1</a></li>
+              <li class="dropdown__item"><a href="#" class="dropdown__link">Category 2</a></li>
+              <li class="dropdown__item"><a href="#" class="dropdown__link">Category 3</a></li>
+              <li class="dropdown__item"><a href="#" class="dropdown__link">Category 4</a></li>
+            </ul>
+          </div>
+          <li class="header__nav--item"><a href="#"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Track
+              Order</a></li>
+          <li class="header__nav--item"><a href="#"><i class="fa-solid fa-code-compare" aria-hidden="true"></i>
+              Compare</a></li>
+          <li class="header__nav--item"><a href="#"><i class="fa-solid fa-headphones" aria-hidden="true"></i> Customer
+              Support</a></li>
+          <li class="header__nav--item"><a href="#"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+              Need Help</a></li>
+        </ul>
+      </nav>
+      <div class="header__contact">
+        <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> +1-202-555-0104</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <p>
+      <span class="breadcrumb__item">
+        <a href="#"><i class="fas fa-home" aria-hidden="true"></i> Home</a> &gt;
+      </span>
+      <span class="breadcrumb__item">
+        <a href="#">User Account</a> &gt;
+      </span>
+      <span id="breadcrumb-active" class="breadcrumb__item breadcrumb__item--current" aria-current="page">
+        Sign In
+      </span>
+    </p>
+  </nav>
+
+  <!-- Auth Form -->
+  <main class="auth" id="main-content">
+    <div class="auth__container">
+      <div class="auth__tabs" role="tablist">
+        <button class="auth__tab auth__tab--active" id="signInTab" role="tab" aria-selected="true">Sign In</button>
+        <button class="auth__tab" id="signUpTab" role="tab" aria-selected="false">Sign Up</button>
+      </div>
+      <form class="auth__form auth__form--signin" method="post" id="signInForm" aria-labelledby="signInTab"
+        role="tabpanel">
+        <div class="auth__form--group">
+          <label for="signInEmail">Email Address</label>
+          <input type="email" id="signInEmail" required aria-required="true" />
+        </div>
+        <div class="auth__form--group">
+          <div class="password-header"> <!-- Thêm wrapper mới -->
+            <label for="signInPassword">Password</label>
+            <div class="auth__forgot">
+              <a href="#" aria-label="Forgot password">Forget Password</a>
+            </div>
+          </div>
+          <div class="auth__input--password">
+            <input type="password" id="signInPassword" required minlength="6" aria-required="true" />
+            <button type="button" class="auth__icon--eye" data-target="signInPassword" aria-label="Show password">
+              <i class="fa-regular fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="auth__submit">SIGN IN <i class="fas fa-arrow-right"
+            aria-hidden="true"></i></button>
+        <div class="auth__or"><span>or</span></div>
+        <button type="button" class="auth__social auth__social--google">
+          <i class="fab fa-google" aria-hidden="true"></i> Sign in with Google
+        </button>
+        <button type="button" class="auth__social auth__social--apple">
+          <i class="fab fa-apple" aria-hidden="true"></i> Sign in with Apple
+        </button>
+      </form>
+      <form class="auth__form auth__form--signup" method="post" id="signUpForm" aria-labelledby="signUpTab"
+        role="tabpanel" hidden>
+        <div class="auth__form--group">
+          <label for="name">Name</label>
+          <input type="text" id="name" required aria-required="true" />
+        </div>
+        <div class="auth__form--group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required aria-required="true" />
+        </div>
+        <div class="auth__form--group">
+          <label for="signUpPassword">Password <span class="visually-hidden">(minimum 8 characters)</span></label>
+          <div class="auth__input--password">
+            <input type="password" id="signUpPassword" required minlength="8" aria-required="true"
+              placeholder="8+ characters" />
+            <button type="button" class="auth__icon--eye" data-target="signUpPassword" aria-label="Show password">
+              <i class="fa-regular fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <div class="auth__form--group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="auth__input--password">
+            <input type="password" id="confirmPassword" required minlength="8" aria-required="true" />
+            <button type="button" class="auth__icon--eye" data-target="confirmPassword" aria-label="Show password">
+              <i class="fa-regular fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <div class="form__checkbox">
+          <input type="checkbox" id="terms" required aria-required="true" />
+          <label for="terms">Are you agree to Clicon <a href="#">Terms of Condition</a> and <a href="#">Privacy
+              Policy</a>.</label>
+        </div>
+        <button type="submit" class="auth__submit">SIGN UP <i class="fas fa-arrow-right"
+            aria-hidden="true"></i></button>
+        <div class="auth__or"><span>or</span></div>
+        <button type="button" class="auth__social auth__social--google">
+          <i class="fab fa-google" aria-hidden="true"></i> Sign up with Google
+        </button>
+        <button type="button" class="auth__social auth__social--apple">
+          <i class="fab fa-apple" aria-hidden="true"></i> Sign up with Apple
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__main">
+      <div class="footer__col">
+        <h1 class="footer__logo"><img src="assets/img/icon1.svg" alt="Company logo"/> CLICON</h1>
+        <p>Customer Support:<br /> (629) 555-0129<br /> 4571 Washington Ave, Kentucky 39495<br /> info@kinbo.com</p>
+      </div>
+      <div class="footer__col">
+        <h2>Top Category</h2>
+        <a href="#">Computer & Laptop</a>
+        <a href="#">SmartPhone</a>
+        <a href="#">Headphone</a>
+        <a href="#">
+          <div class="footer__col--devider"></div> Accessories
+        </a>
+        <a href="#">Camera & Photo</a>
+        <a href="#">TV & Homes</a>
+        <a href="#"><strong>Browse All Product</strong></a>
+      </div>
+      <div class="footer__col">
+        <h2>Quick Links</h2>
+        <a href="#">Shop Product</a>
+        <a href="#">Shopping Cart</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Compare</a>
+        <a href="#">Track Order</a>
+        <a href="#">Customer Help</a>
+        <a href="#">About Us</a>
+      </div>
+      <div class="footer__col">
+        <h2>Download App</h2>
+        <div class="footer__apps">
+          <a href="#" class="app__link"><i class="fab fa-google-play" aria-hidden="true"></i>
+            <div>
+              <div>Get it now</div>
+              <div>Google Play</div>
+            </div>
+          </a>
+          <a href="#" class="app__link"><i class="fab fa-app-store" aria-hidden="true"></i>
+            <div>
+              <div>Get it now</div>
+              <div>App Store</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h2>Popular Tags</h2>
+        <div class="footer__col--tags">
+          <span class="footer__col--tag">Game</span>
+          <span class="footer__col--tag">iPhone</span>
+          <span class="footer__col--tag">TV</span>
+          <span class="footer__col--tag">Asus Laptops</span>
+          <span class="footer__col--tag">Macbook</span>
+          <span class="footer__col--tag">SSD</span>
+          <span class="footer__col--tag">Graphics Card</span>
+          <span class="footer__col--tag">Power Bank</span>
+          <span class="footer__col--tag">Smart TV</span>
+          <span class="footer__col--tag">Speaker</span>
+          <span class="footer__col--tag">Tablet</span>
+          <span class="footer__col--tag">Microwave</span>
+          <span class="footer__col--tag">Samsung</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">Kinbo eCommerce Template © 2021. Design by Templatecookie</div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
